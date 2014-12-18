@@ -22,6 +22,10 @@ public abstract class Cardgame {
 
 	}
 	
+	public abstract void createDeck();
+	
+	
+	
 	
 
 }
