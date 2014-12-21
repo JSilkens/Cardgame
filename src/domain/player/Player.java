@@ -1,10 +1,14 @@
 package domain.player;
 
-import domain.DomainException;
+import java.util.List;
 
-public class Player {
+import domain.DomainException;
+import domain.card.Card;
+
+public abstract class Player {
 	private String name;
 	private Score score;
+	private List<Card> hand;
 	
 	public Player(String name , Score score) throws DomainException{
 		setName(name);

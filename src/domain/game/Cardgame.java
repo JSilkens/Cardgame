@@ -1,17 +1,31 @@
 package domain.game;
 
+import java.util.ArrayDeque;
+import java.util.Deque;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import domain.DomainException;
 import domain.card.Card;
+import domain.player.Player;
 
-public abstract class Cardgame {
-	private Set<Card> cards;
+public abstract class CardGame {
+	private List<Card> cards;
+	private Player currentPlayer;
+	private Set<Player> players;
 
-	public Cardgame() {
-		this.cards = new HashSet<Card>();
+	public CardGame(Set<Player> players) {
+		this.cards = createDeck();
+		setPlayers(players);
+		
 	}
+
+	private void setPlayers(Set<Player> players) {
+		this.players = players;
+		
+	}
+	
 
 	public void add(Card c) throws DomainException {
 		if (c == null) {
@@ -22,7 +36,13 @@ public abstract class Cardgame {
 
 	}
 	
-	public abstract void createDeck();
+	public Card getCardFromStack(){
+		return cards.remove(0);
+	}
+	
+	public abstract List<Card> createDeck();
+	public abstract int getMaxPlayers();
+	
 	
 	
 	

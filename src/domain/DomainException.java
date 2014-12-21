@@ -16,6 +16,7 @@ public class DomainException extends Exception {
 	}
 
 	public DomainException(Throwable exception) {
-		super(exception);
+		super(exception); 
+		
 	}
 }
