@@ -8,6 +8,7 @@ import java.util.Set;
 import domain.card.Card;
 import domain.card.Value;
 import domain.game.CardGame;
+import domain.game.strategies.BlackJackStrategy;
 import domain.player.Player;
 // Coordination of game
 
@@ -62,5 +63,31 @@ public class BlackJackGame extends CardGame {
 	
 		return 2;
 	}
+	@Override
+	public Player getWinner() {
+		int stopped = 0;
+		int smallestDifference = 0 , pIn = 0; //smallest difference and the player's index  
+		//itereer over alle spelers om hun punten te weten
+		for(Player p : players){
+			if( ((BlackJackStrategy) p.getCardGameStrategy()).isStopped() == true){		
+				stopped++;
+			}
+		}
+		if (stopped == players.size()){
+			// spel is afgelopen. Kijk wie er gewonnen heeft
+			for(Player p : players){
+				if(this.)
+			}
+			
+			
+			
+			
+			
+			
+		}	
+		return null;
+	}
+	
+	
 
 }

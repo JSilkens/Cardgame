@@ -1,40 +1,46 @@
 package domain.game.strategies;
 
-import java.util.Set;
-
-import domain.game.CardGame;
-import domain.game.blackjack.BlackJackGame;
 import domain.player.Player;
 
-/**
- * 
- * @author johan
- *
- *Defines the AI of that game.
- */
-
-public class BlackJackStrategy implements CardGameStrategy {
-	//alle blackjack informatie hier
-	private int points ;
+//definieert de mogelijkheden van het spel
+public abstract class BlackJackStrategy implements CardGameStrategy {
+	protected int points ;
+	 private boolean isStanded;
+	 private Player p;
 	
-
-	@Override
-	public void play(CardGame game , Set<Player> players ) {
-		BlackJackGame blackjack = (BlackJackGame) game;
+	
+	public BlackJackStrategy(Player p){
+		setPlayer(p);
+	}
+	private void setPlayer(Player p) {
+		this.p = p;
 		
-		if(points < 21 && ){
-			
+	}
+	public boolean hasStand(){
+		return isStanded;
+	}
+	public void setStanded(boolean b){
+		this.isStanded = b;
+	}
+	
+	public boolean isStopped(){
+		if(isStanded == true || isBusted() ){
+			return true;
+		}else{
+			return false;
 		}
-		/**
-		 * Vraag naar score currentplayer
-		 * Afhankelijk van keuze speler een kaart vragen
-		 * 
-		 */
-		
-		
+	}
+	
+	public boolean isBusted(){
+		if(p.getCards().size() > 7 && points > 21){
+			return true;
+		}else{
+			return false;
+		}
 	}
 	
 	
 	
-
+	
+	
 }

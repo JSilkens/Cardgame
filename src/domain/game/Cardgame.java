@@ -13,7 +13,7 @@ import domain.player.Player;
 public abstract class CardGame {
 	private List<Card> cards;
 	private Player currentPlayer;
-	private Set<Player> players;
+	protected Set<Player> players;
 
 	public CardGame(Set<Player> players) {
 		this.cards = createDeck();
@@ -40,6 +40,20 @@ public abstract class CardGame {
 		return cards.remove(0);
 	}
 	
+	public Player play(){
+		for (Player p : players){
+			
+			
+			while (getWinner() == null ){
+			
+		    }
+		}
+		
+		return currentPlayer;
+	}
+	
+	public abstract Player getWinner();
+
 	public abstract List<Card> createDeck();
 	public abstract int getMaxPlayers();
 	
