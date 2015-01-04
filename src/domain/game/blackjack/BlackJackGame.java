@@ -17,8 +17,8 @@ import domain.player.Player;
  * @author johan
  * 
  * TODO Implement play rules
- * - if higher than 21 stop game
- * - if you have more than 7 cards
+ * - if higher than 21 stop game (if all players has stopped ==> stop game)
+ * - if you have more than 7 cards (if you have more than 7 cards. state ==> stopped)
  * - 
  * - ... etc
  *
@@ -75,17 +75,17 @@ public class BlackJackGame extends CardGame {
 		}
 		if (stopped == players.size()){
 			// spel is afgelopen. Kijk wie er gewonnen heeft
-			for(int i = 0 ; i < players.size() ; i++)){
-				BlackJackStrategy strategy = (BlackJackStrategy) players..getCardGameStrategy();
+			for(int i = 0 ; i < players.size() ; i++){
+				BlackJackStrategy strategy = (BlackJackStrategy) ((Player) players).getCardGameStrategy();
 				if( (21 - strategy.getPoints()) < smallestDifference ){
 					i = pIn;
+					smallestDifference = (21 - strategy.getPoints());
 					
 				}
+				
 			}
 			
-			
-			
-			
+			return (Player) players.toArray()[pIn]; 
 			
 			
 		}	
