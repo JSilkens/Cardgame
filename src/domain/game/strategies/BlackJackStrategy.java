@@ -38,6 +38,10 @@ public abstract class BlackJackStrategy implements CardGameStrategy {
 			return false;
 		}
 	}
+	public int getPoints() {
+		
+		return points;
+	}
 	
 	
 	

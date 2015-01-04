@@ -75,8 +75,12 @@ public class BlackJackGame extends CardGame {
 		}
 		if (stopped == players.size()){
 			// spel is afgelopen. Kijk wie er gewonnen heeft
-			for(Player p : players){
-				if(this.)
+			for(int i = 0 ; i < players.size() ; i++)){
+				BlackJackStrategy strategy = (BlackJackStrategy) players..getCardGameStrategy();
+				if( (21 - strategy.getPoints()) < smallestDifference ){
+					i = pIn;
+					
+				}
 			}
 			
 			
