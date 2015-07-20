@@ -67,14 +67,14 @@ public class BlackJackGame extends CardGame {
 	public Player getWinner() {
 		int stopped = 0;
 		int smallestDifference = 0 , pIn = 0; //smallest difference and the player's index  
-		//itereer over alle spelers om hun punten te weten
+		//Iterate over all the players to view their score
 		for(Player p : players){
 			if( ((BlackJackStrategy) p.getCardGameStrategy()).isStopped() == true){		
 				stopped++;
 			}
 		}
 		if (stopped == players.size()){
-			// spel is afgelopen. Kijk wie er gewonnen heeft
+			// Game over! Check who has won.
 			for(int i = 0 ; i < players.size() ; i++){
 				BlackJackStrategy strategy = (BlackJackStrategy) ((Player) players).getCardGameStrategy();
 				if( (21 - strategy.getPoints()) < smallestDifference ){
@@ -90,6 +90,11 @@ public class BlackJackGame extends CardGame {
 			
 		}	
 		return null;
+	}
+	@Override
+	public int getMinPlayers() {
+		
+		return 2;
 	}
 	
 	

@@ -56,6 +56,7 @@ public abstract class CardGame {
 
 	public abstract List<Card> createDeck();
 	public abstract int getMaxPlayers();
+	public abstract int getMinPlayers();
 	
 	
 	
