@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Set;
 
 import domain.card.Card;
+import domain.card.Deck;
 import domain.card.Value;
 import domain.game.CardGame;
 import domain.game.strategies.BlackJackStrategy;
@@ -51,11 +52,10 @@ public class BlackJackGame extends CardGame {
 	}
 
 	@Override
-	public List<Card> createDeck() {
-		
-		List<Card> cards = Card.getDefaultDeck();
-		Collections.shuffle(cards);
-		return cards;
+	public Deck createDeck() {
+		Deck d = new Deck();
+		d.shuffleDeck();
+		return d ;
 	}
 
 	@Override

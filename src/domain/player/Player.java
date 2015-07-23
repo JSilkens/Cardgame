@@ -45,6 +45,10 @@ public abstract class Player {
 		
 	}
 	
+	public void setStack(List<Card> stack){
+		this.hand = stack;
+	}
+	
 	public List<Card> getCards(){
 		return this.hand;
 	}
@@ -52,6 +56,8 @@ public abstract class Player {
 	public void addCard(Card c){
 		this.hand.add(c);
 	}
+	
+	
 	public void playCard(Card c)throws DomainException{
 		if(! this.hand.remove(c)){
 			throw new DomainException("Card does not exist.");

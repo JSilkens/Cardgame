@@ -31,6 +31,7 @@ public class BlackJackAI extends BlackJackStrategy {
 		if(points < 21 && p.getCards().size() < 7 ){
 			
 			Card c = game.getCardFromStack();
+			
 			 points += blackjack.getPoints(c, points);
 			 
 			p.addCard(game.getCardFromStack());

@@ -1,11 +1,10 @@
 package domain.game.donkey;
 
-import java.util.List;
 import java.util.Set;
-
-import domain.card.Card;
+import domain.card.Deck;
 import domain.game.CardGame;
 import domain.player.Player;
+import domain.game.donkey.strategy.DonkeyGameStrategy;
 
 public class DonkeyGame extends CardGame {
 
@@ -22,25 +21,21 @@ public class DonkeyGame extends CardGame {
 	 */
 	public DonkeyGame(Set<Player> players) {
 		super(players);
-		// TODO Auto-generated constructor stub
+		
 	}
 	@Override
 	public Player getWinner() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	
-	/*
-	 * Every player gets a random set of 4 cards
-	 * 
-	 */
-	@Override
-	public List<Card> createDeck() {
-		// TODO Auto-generated method stub
+		int stopped = 0;
 		
+		for(Player p : players){
+			
+		}
+				
 		return null;
 	}
+  @Override
+  public
+	
  /*
   * The max players for this game 12
   * Min = 3 
@@ -48,7 +43,6 @@ public class DonkeyGame extends CardGame {
   */
 	@Override
 	public int getMaxPlayers() {
-		
 		return 12;
 	}
 
@@ -57,6 +51,14 @@ public class DonkeyGame extends CardGame {
 	public int getMinPlayers() {
 		
 		return 3;
+	}
+	@Override
+	public Deck createDeck() {
+		Deck d = new Deck();
+		d.shuffleDeck();
+		return this.deck = d;
+	
+		
 	}
 
 }
