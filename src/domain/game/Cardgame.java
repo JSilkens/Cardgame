@@ -16,13 +16,15 @@ public abstract class CardGame {
 	protected Player currentPlayer;
 	protected Set<Player> players;
 
-	public CardGame(Set<Player> players) {
+	public CardGame(Set<Player> players) throws DomainException {
 		this.deck = createDeck();
 		setPlayers(players);
 		
 	}
 
-	private void setPlayers(Set<Player> players) {
+	protected void setPlayers(Set<Player> players) throws DomainException {
+		if(players.size() > this.getMaxPlayers()-1) throw new DomainException("The max amount of player is reached");
+		if(players.size() < this.getMinPlayers()-1) throw new DomainException("You cannot go under the minimum required amount of players");
 		this.players = players;
 		
 	}

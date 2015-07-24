@@ -5,6 +5,7 @@ import java.util.Deque;
 import java.util.List;
 import java.util.Set;
 
+import domain.DomainException;
 import domain.card.Card;
 import domain.card.Deck;
 import domain.card.Value;
@@ -26,7 +27,7 @@ import domain.player.Player;
  */
 public class BlackJackGame extends CardGame {
 
-	public BlackJackGame(Set<Player> players) {
+	public BlackJackGame(Set<Player> players) throws DomainException {
 		super(players);
 		
 	}

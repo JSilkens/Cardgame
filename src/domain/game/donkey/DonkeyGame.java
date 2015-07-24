@@ -1,6 +1,8 @@
 package domain.game.donkey;
 
 import java.util.Set;
+
+import domain.DomainException;
 import domain.card.Deck;
 import domain.game.CardGame;
 import domain.player.Player;
@@ -19,7 +21,7 @@ public class DonkeyGame extends CardGame {
 	 * Game stops when a player has 4 cards of the same value.
 	 * 
 	 */
-	public DonkeyGame(Set<Player> players) {
+	public DonkeyGame(Set<Player> players) throws DomainException {
 		super(players);
 		
 	}
@@ -33,9 +35,7 @@ public class DonkeyGame extends CardGame {
 				
 		return null;
 	}
-  @Override
-  public
-	
+  
  /*
   * The max players for this game 12
   * Min = 3 
