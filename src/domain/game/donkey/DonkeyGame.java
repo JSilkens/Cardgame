@@ -30,7 +30,16 @@ public class DonkeyGame extends CardGame {
 		int stopped = 0;
 		
 		for(Player p : players){
+			if(((DonkeyGameStrategy) p.getCardGameStrategy()).isStopped() == true){
+				stopped ++;
+			}
 			
+			/**
+			 * TODO check who has won
+			 * ----------------------
+			 * 
+			 * 
+			 */
 		}
 				
 		return null;

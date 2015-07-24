@@ -6,11 +6,11 @@ import domain.DomainException;
 import domain.game.CardGame;
 import domain.game.strategies.CardGameStrategy;
 
-public class ComputerPlayer extends Player {
+public class DefaultComputerPlayer extends Player {
 	
 	
 
-	public ComputerPlayer(String name, Score score, CardGameStrategy strategy) throws DomainException {
+	public DefaultComputerPlayer(String name, Score score, CardGameStrategy strategy) throws DomainException {
 		super(name, score);
 		setCardGameStrategy(strategy);
 	}

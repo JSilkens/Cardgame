@@ -6,9 +6,9 @@ import domain.card.Card;
 import domain.DomainException;
 import domain.game.CardGame;
 
-public class HumanPlayer extends Player {
+public class DefaultHumanPlayer extends Player {
 
-	public HumanPlayer(String name, Score score) throws DomainException {
+	public DefaultHumanPlayer(String name, Score score) throws DomainException {
 		super(name, score);
 		
 	}

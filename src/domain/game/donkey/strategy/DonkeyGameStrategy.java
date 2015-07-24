@@ -1,10 +1,16 @@
 package domain.game.donkey.strategy;
 
 import java.util.Set;
-
 import domain.game.CardGame;
 import domain.game.strategies.CardGameStrategy;
 import domain.player.Player;
+
+
+/*
+ * TODO 
+ * points are the amount of cards of the same value
+ * the isBusted function is when the player has the full word
+ */
 
 public class DonkeyGameStrategy implements CardGameStrategy {
 	private Player p;
@@ -24,11 +30,13 @@ public class DonkeyGameStrategy implements CardGameStrategy {
 		// TODO Auto-generated method stub
 
 	}
+	
+	
 
 	@Override
 	public int getPoints() {
 		// TODO Auto-generated method stub
-		return 0;
+		return ;
 	}
 
 	@Override

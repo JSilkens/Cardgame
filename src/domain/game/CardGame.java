@@ -8,37 +8,29 @@ import java.util.Set;
 
 import domain.DomainException;
 import domain.card.Card;
+import domain.card.Deck;
 import domain.player.Player;
 
 public abstract class CardGame {
-	private List<Card> cards;
-	private Player currentPlayer;
+	protected Deck deck;
+	protected Player currentPlayer;
 	protected Set<Player> players;
 
-	public CardGame(Set<Player> players) {
-		this.cards = createDeck();
+	public CardGame(Set<Player> players) throws DomainException {
+		this.deck = createDeck();
 		setPlayers(players);
 		
 	}
 
-	private void setPlayers(Set<Player> players) {
+	protected void setPlayers(Set<Player> players) throws DomainException {
+		if(players.size() > this.getMaxPlayers()-1) throw new DomainException("The max amount of player is reached");
+		if(players.size() < this.getMinPlayers()-1) throw new DomainException("You cannot go under the minimum required amount of players");
 		this.players = players;
 		
 	}
 	
 
-	public void add(Card c) throws DomainException {
-		if (c == null) {
-			throw new DomainException("No card was given to the game");
-		} else {
-			this.cards.add(c);
-		}
-
-	}
 	
-	public Card getCardFromStack(){
-		return cards.remove(0);
-	}
 	
 	public Player play(){
 		for (Player p : players){
@@ -54,8 +46,13 @@ public abstract class CardGame {
 	
 	public abstract Player getWinner();
 
-	public abstract List<Card> createDeck();
+	public abstract Deck createDeck();
 	public abstract int getMaxPlayers();
+	public abstract int getMinPlayers();
+
+	public Card getCardFromStack() {
+		return deck.takeCardFromDeck();
+	}
 	
 	
 	
