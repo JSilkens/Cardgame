@@ -6,6 +6,8 @@ import domain.card.Card;
 import domain.DomainException;
 import domain.game.CardGame;
 
+
+//OCP
 public class DefaultHumanPlayer extends Player {
 
 	public DefaultHumanPlayer(String name, Score score) throws DomainException {
