@@ -1,9 +1,12 @@
 package domain.game.donkey.strategy;
 
 import java.util.Set;
+
 import domain.game.CardGame;
 import domain.game.strategies.CardGameStrategy;
 import domain.player.Player;
+import domain.player.Score;
+import domain.player.donkey.DonkeyHumanPlayer;
 
 
 /*
@@ -36,12 +39,17 @@ public class DonkeyGameStrategy implements CardGameStrategy {
 	@Override
 	public int getPoints() {
 		// TODO Auto-generated method stub
-		return ;
+		
+		return p.getScore().getScore();
 	}
 
 	@Override
 	public boolean isStopped() {
 		// TODO when player has the whole word => game over
+		if  (((DonkeyHumanPlayer) p).showLetters().length() == 4){
+			return true;
+		}
+		
 		return false;
 	}
 

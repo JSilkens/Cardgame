@@ -9,9 +9,9 @@ import domain.game.CardGame;
 import domain.game.strategies.CardGameStrategy;
 
 public abstract class Player {
-	private String name;
-	private Score score;
-	private List<Card> hand;
+	protected String name;
+	protected Score score;
+	protected List<Card> hand;
 	protected CardGameStrategy gameStrategy;
 	
 	public Player(String name , Score score) throws DomainException{
