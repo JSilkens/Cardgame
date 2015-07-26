@@ -6,7 +6,6 @@ import domain.card.Card;
 import domain.game.CardGame;
 import domain.game.strategies.CardGameStrategy;
 import domain.player.Player;
-import domain.player.Score;
 import domain.player.donkey.DonkeyHumanPlayer;
 
 
@@ -59,7 +58,16 @@ public class DonkeyGameStrategy implements CardGameStrategy {
 
 	@Override
 	public void play(CardGame game, Set<Player> players, Player p) {
+		game.createDeck();
 		while(game.getWinner() == null){
+			for(Player pe : players){
+				//TODO
+				/*
+				 * 1 set player active
+				 * 2. show his cards
+				 * 3. ... 
+				 */
+			}
 			
 		}
 		
