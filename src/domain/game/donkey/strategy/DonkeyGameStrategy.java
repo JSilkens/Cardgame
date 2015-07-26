@@ -59,7 +59,9 @@ public class DonkeyGameStrategy implements CardGameStrategy {
 
 	@Override
 	public void play(CardGame game, Set<Player> players, Player p) {
-		// TODO Auto-generated method stub
+		while(game.getWinner() == null){
+			
+		}
 		
 	}
 
