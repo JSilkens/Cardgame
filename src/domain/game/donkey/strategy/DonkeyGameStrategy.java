@@ -29,15 +29,7 @@ public class DonkeyGameStrategy implements CardGameStrategy {
 		
 	}
 
-	@Override
-	public void play(CardGame game, Set<Player> players, Player p) {
-		for (Player pl : players){
-			while(this.getWinner() ==  null){
-				//TODO 
-			}
-		}
-
-	}
+	
 	
 	public Card swapCard(Player otherplayer){
 		return null;
@@ -63,6 +55,12 @@ public class DonkeyGameStrategy implements CardGameStrategy {
 		}
 		
 		return false;
+	}
+
+	@Override
+	public void play(CardGame game, Set<Player> players, Player p) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

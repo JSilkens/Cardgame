@@ -6,6 +6,7 @@ import domain.DomainException;
 import domain.card.Deck;
 import domain.game.CardGame;
 import domain.player.Player;
+import domain.player.donkey.DonkeyHumanPlayer;
 import domain.game.donkey.strategy.DonkeyGameStrategy;
 
 public class DonkeyGame extends CardGame {
@@ -34,15 +35,28 @@ public class DonkeyGame extends CardGame {
 				stopped ++;
 			}
 			
-			/**
-			 * TODO check who has won
-			 * ----------------------
-			 * 
-			 * 
-			 */
+			
+			if (stopped == players.size()){
+				for(Player pl : this.players){
+					if(((DonkeyHumanPlayer) p).getAmountSameValue() == 4 ){
+						return p;
+					}
+				}
+			}
 		}
 				
 		return null;
+	}
+	
+	@Override
+	public Player play() {
+		for (Player pl : players){
+			while(this.getWinner() ==  null){
+				//TODO 
+			}
+		}
+		return currentPlayer;
+
 	}
   
  /*
