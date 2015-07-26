@@ -2,6 +2,7 @@ package domain.game.donkey.strategy;
 
 import java.util.Set;
 
+import domain.card.Card;
 import domain.game.CardGame;
 import domain.game.strategies.CardGameStrategy;
 import domain.player.Player;
@@ -30,8 +31,17 @@ public class DonkeyGameStrategy implements CardGameStrategy {
 
 	@Override
 	public void play(CardGame game, Set<Player> players, Player p) {
-		// TODO Auto-generated method stub
+		for (Player pl : players){
+			while(this.getWinner() ==  null){
+				//TODO 
+			}
+		}
 
+	}
+	
+	public Card swapCard(Player otherplayer){
+		return null;
+		
 	}
 	
 	
@@ -42,6 +52,8 @@ public class DonkeyGameStrategy implements CardGameStrategy {
 		
 		return p.getScore().getScore();
 	}
+	
+	
 
 	@Override
 	public boolean isStopped() {

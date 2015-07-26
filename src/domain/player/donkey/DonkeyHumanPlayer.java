@@ -1,6 +1,7 @@
 package domain.player.donkey;
 
 import domain.DomainException;
+import domain.card.Card;
 import domain.game.strategies.CardGameStrategy;
 import domain.player.DefaultComputerPlayer;
 import domain.player.DefaultHumanPlayer;
@@ -24,6 +25,23 @@ public class DonkeyHumanPlayer extends DefaultHumanPlayer {
 	
 	public String showLetters(){
 		return this.letters;
+	}
+	
+	public int getAmountSameValue(){
+		int val = 0;
+		
+		for(int i = 0 ; i < this.hand.size() ; i++){
+			for(int j = 0 ; j< this.hand.size(); i++){
+				if(this.hand.get(i).equals(this.hand.get(j))){
+					val++;
+				}
+				
+			}
+			val = 0;
+		}
+		
+		return val;
+				
 	}
 	
 	
