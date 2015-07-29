@@ -1,8 +1,8 @@
 package app;
 
-import javax.swing.JFrame;
 
 import ui.MainView;
+import ui.DonkeyGameUI;
 
 public class Laucher {
 
@@ -11,8 +11,12 @@ public class Laucher {
 		System.out.println("Cardgame");
 		
 		MainView view = new MainView();
+                DonkeyGameUI view2 = new DonkeyGameUI();
 		view.setVisible(true);
+                //view2.setVisible(true);
 
 	}
+        
+       
 
 }

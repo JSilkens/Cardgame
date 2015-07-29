@@ -33,8 +33,10 @@ public class MainView extends JFrame {
 		JMenuItem newBlackjackItem = new JMenuItem("Blackjack");
 		JMenu gameMenu = new JMenu("Game");
 		JMenu newGameMenu = new JMenu("new");
+                JMenuItem newDonkeyGame = new JMenuItem("Donkey");
 		newGameMenu.add(newBlackjackItem);
-		gameMenu.add(newGameMenu);
+                newGameMenu.add(newDonkeyGame);
+		
 		menuBar.add(gameMenu);
 		setJMenuBar(menuBar);
 		
@@ -42,5 +44,9 @@ public class MainView extends JFrame {
 		
 		
 	}
+        
+        public void actionPreformed(){
+            
+        }
 
 }
