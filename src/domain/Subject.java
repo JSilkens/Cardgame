@@ -1,8 +1,8 @@
 package domain;
 
 public interface Subject {
-	public void addObserver(Observer observer);
-	public void removeObserver(Observer observer);
+	public void addObserver(PlayerObserver observer);
+	public void removeObserver(PlayerObserver observer);
 	public void notifyObserver();
 
 }

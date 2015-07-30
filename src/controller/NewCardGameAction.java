@@ -5,7 +5,7 @@ import java.awt.event.ActionEvent;
 import javax.swing.AbstractAction;
 
 import service.CardGameService;
-public class NewCardGameAction extends AbstractAction {
+public class NewCardGameAction {
 	private CardGameService service;
 	
 	 public NewCardGameAction(Class c) {

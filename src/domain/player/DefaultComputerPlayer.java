@@ -3,6 +3,7 @@ package domain.player;
 import java.util.Set;
 
 import domain.DomainException;
+import domain.PlayerObserver;
 import domain.game.CardGame;
 import domain.game.strategies.CardGameStrategy;
 
@@ -27,5 +28,7 @@ public class DefaultComputerPlayer extends Player {
 		
 		
 	}
+
+
 
 }

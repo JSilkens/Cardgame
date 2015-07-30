@@ -4,11 +4,13 @@ import java.util.List;
 import java.util.Set;
 
 import domain.DomainException;
+import domain.PlayerObserver;
+import domain.Subject;
 import domain.card.Card;
 import domain.game.CardGame;
 import domain.game.strategies.CardGameStrategy;
 
-public abstract class Player {
+public abstract class Player implements Subject  {
 	protected String name;
 	protected Score score;
 	protected List<Card> hand;
@@ -70,6 +72,24 @@ public abstract class Player {
 	}
 	
 	public abstract void play(CardGame cg, Set<Player> players);
+	
+	@Override
+	public void addObserver(PlayerObserver observer) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void removeObserver(PlayerObserver observer) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void notifyObserver() {
+		// TODO Auto-generated method stub
+		
+	}
 	
 
 }

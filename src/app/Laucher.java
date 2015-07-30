@@ -2,7 +2,7 @@ package app;
 
 
 import ui.MainView;
-import ui.DonkeyGameUI;
+import ui.donkey.DonkeyGameUI;
 
 public class Laucher {
 
@@ -13,7 +13,7 @@ public class Laucher {
 		MainView view = new MainView();
                 DonkeyGameUI view2 = new DonkeyGameUI();
 		view.setVisible(true);
-                //view2.setVisible(true);
+                view2.setVisible(true);
 
 	}
         
