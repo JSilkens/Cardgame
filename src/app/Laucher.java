@@ -10,10 +10,9 @@ public class Laucher {
 		// TODO Auto-generated method stub
 		System.out.println("Cardgame");
 		
-		MainView view = new MainView();
-                DonkeyGameUI view2 = new DonkeyGameUI();
+		MainView view = new MainView();     
 		view.setVisible(true);
-                view2.setVisible(true);
+             
 
 	}
         

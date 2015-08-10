@@ -45,6 +45,12 @@ public class BlackJackAI extends BlackJackStrategy {
 		
 		
 	}
+
+	@Override
+	public void run(CardGame game) {
+		// TODO Auto-generated method stub
+		
+	}
 	
 	
 	

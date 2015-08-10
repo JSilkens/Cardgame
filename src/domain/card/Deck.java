@@ -9,17 +9,17 @@ public class Deck {
 	private List<Card> deck;
 	
 	
-	public Deck(){
-		createDeck();
+	public Deck(List<Card> cards){
+		createDeck(cards);
 	}
 	
-	private void createDeck() {
-		this.deck = getDefaultDeck();
+	private void createDeck(List<Card> cards) {
 		
+		this.deck = cards;
 		
 	}
 
-	private static List<Card> getDefaultDeck(){
+	public static Deck getDefaultDeck(){
 		List<Card> defaultCardDeck = new ArrayList<Card>();
 		
 		// Iterate over Symbols
@@ -31,7 +31,7 @@ public class Deck {
 			}
 		}	
 		
-		return defaultCardDeck;
+		return new Deck(defaultCardDeck);
 	}
 	
 	public List<Card> getDeck(){
@@ -49,6 +49,7 @@ public class Deck {
 	public Card takeCardFromDeck(){
 		return this.deck.remove(0);
 	}
+	
 	
 	
 	

@@ -41,4 +41,10 @@ public class BlackJackCLI extends BlackJackStrategy {
 		
 	}
 
+	@Override
+	public void run(CardGame game) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

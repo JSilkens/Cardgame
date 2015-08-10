@@ -14,6 +14,7 @@ import domain.player.Player;
 
 public interface CardGameStrategy {
 	public void play(CardGame game , Set<Player> players , Player p );
+	public void run(CardGame game);
 	public int getPoints();
 	public boolean isStopped();
 

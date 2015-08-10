@@ -54,7 +54,7 @@ public class BlackJackGame extends CardGame {
 
 	@Override
 	public Deck createDeck() {
-		Deck d = new Deck();
+		Deck d = Deck.getDefaultDeck();
 		d.shuffleDeck();
 		return d ;
 	}

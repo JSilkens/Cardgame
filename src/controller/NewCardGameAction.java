@@ -1,15 +1,12 @@
 package controller;
 
-import java.awt.event.ActionEvent;
-
-import javax.swing.AbstractAction;
 
 import service.CardGameService;
 public class NewCardGameAction {
 	private CardGameService service;
 	
 	 public NewCardGameAction(Class c) {
-		super(c.getName());
+		super();
 		setService(service);
 		
 		
@@ -20,12 +17,6 @@ public class NewCardGameAction {
 		
 	}
 
-	@Override
-	public void actionPerformed(ActionEvent e) {
-		
-		
-		
-		
-	}
+	
 
 }

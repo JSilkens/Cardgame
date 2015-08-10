@@ -4,6 +4,7 @@ import java.util.Set;
 
 import domain.card.Card;
 import domain.game.CardGame;
+import domain.game.donkey.DonkeyGame;
 import domain.game.strategies.CardGameStrategy;
 import domain.player.Player;
 import domain.player.donkey.DonkeyHumanPlayer;
@@ -17,6 +18,7 @@ import domain.player.donkey.DonkeyHumanPlayer;
 
 public class DonkeyGameStrategy implements CardGameStrategy {
 	private Player p;
+	private CardGame game;
 
 	public DonkeyGameStrategy(Player p) {
 		 setPlayer(p);
@@ -27,10 +29,9 @@ public class DonkeyGameStrategy implements CardGameStrategy {
 		this.p = p;
 		
 	}
-
 	
-	
-	public Card swapCard(Player otherplayer){
+	public Card swapCard(DonkeyGame game , Card c){
+		
 		return null;
 		
 	}
@@ -58,18 +59,29 @@ public class DonkeyGameStrategy implements CardGameStrategy {
 
 	@Override
 	public void play(CardGame game, Set<Player> players, Player p) {
+		
+	}
+
+	@Override
+	public void run(CardGame game) {
+		
 		game.createDeck();
 		while(game.getWinner() == null){
-			for(Player pe : players){
+			
+			
+			for(Player pe : game.getPlayers()){
 				//TODO
 				/*
 				 * 1 set player active
 				 * 2. show his cards
 				 * 3. ... 
 				 */
+				
+				
 			}
 			
 		}
+		
 		
 	}
 

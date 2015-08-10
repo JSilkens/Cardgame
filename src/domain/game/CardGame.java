@@ -29,20 +29,26 @@ public abstract class CardGame {
 		
 	}
 	
+	public Set<Player> getPlayers(){
+		return this.players;
+	}
+	
+	protected void addPlayer(Player p){
+		this.players.add(p);
+	}
+	
+	public Player getCurrentPlayer(){
+		return this.currentPlayer;
+	}
+	
+	public void setCurrentPlayer(Player p){
+		this.currentPlayer = p;
+	}
+	
 
 	
 	
-	public Player play(){
-		for (Player p : players){
-			
-			
-			while (getWinner() == null ){
-			
-		    }
-		}
-		
-		return currentPlayer;
-	}
+	
 	
 	public abstract Player getWinner();
 

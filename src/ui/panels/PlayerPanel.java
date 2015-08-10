@@ -1,10 +1,12 @@
 package ui.panels;
 
+import java.awt.Color;
 import java.awt.GridLayout;
 import java.awt.Label;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.BorderFactory;
 import javax.swing.GroupLayout;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -20,7 +22,7 @@ import javax.swing.LayoutStyle.ComponentPlacement;
 
 public class PlayerPanel extends JPanel implements PlayerObserver {
 
-	GroupLayout gl;
+	GroupLayout groupLayout;
 
 	JLabel lb;
 	JButtonCard[] btnCards;
@@ -30,24 +32,26 @@ public class PlayerPanel extends JPanel implements PlayerObserver {
 	/**
 	 * Create the panel.
 	 */
-	public PlayerPanel(JFrame frame, Player p) {
+	public PlayerPanel(JPanel panel, Player p) {
 
-		this.lb = new JLabel("Player1");
+		this.lb = new JLabel(p.getName());
 
 		JPanel btnPanel = new JPanel();
 
-		this.gl = new GroupLayout(this);
-		gl.setHorizontalGroup(gl.createParallelGroup(Alignment.LEADING)
+		this.groupLayout = new GroupLayout(this);
+		
+		/*
+		groupLayout.setHorizontalGroup(groupLayout.createParallelGroup(Alignment.LEADING)
 				.addGroup(
 						Alignment.TRAILING,
-						gl.createSequentialGroup()
+						groupLayout.createSequentialGroup()
 								.addContainerGap(GroupLayout.DEFAULT_SIZE,
 										Short.MAX_VALUE)
 								.addComponent(btnPanel,
 										GroupLayout.PREFERRED_SIZE, 450,
-										GroupLayout.PREFERRED_SIZE)));
-		gl.setVerticalGroup(gl.createParallelGroup(Alignment.LEADING).addGroup(
-				gl.createSequentialGroup()
+										GroupLayout.PREFERRED_SIZE)));*/
+		groupLayout.setVerticalGroup(groupLayout.createParallelGroup(Alignment.LEADING).addGroup(
+				groupLayout.createSequentialGroup()
 						.addComponent(lb)
 						.addPreferredGap(ComponentPlacement.RELATED)
 						.addComponent(btnPanel, GroupLayout.PREFERRED_SIZE,
@@ -56,10 +60,10 @@ public class PlayerPanel extends JPanel implements PlayerObserver {
 								Short.MAX_VALUE)));
 		GridLayout gl = new GridLayout(2, 2);
 		btnPanel.setLayout(gl);
-
+		int i = 0;
 		btnCards = new JButtonCard[4];
 		for (JButtonCard b : btnCards) {
-			b = new JButtonCard(null);
+			b = new JButtonCard(p.getCards().get(i++));
 			b.addActionListener(new ActionListener() {
 				
 				@Override
@@ -86,8 +90,18 @@ public class PlayerPanel extends JPanel implements PlayerObserver {
 		}
 
 	}
+	
+	public void setActive(boolean b){
+		if(b == true){
+			this.setBorder(BorderFactory.createLineBorder(Color.red, 10));
+		}else{
+			this.setBorder(null);
+		}
+	}
 
 	public class JButtonCard extends JButton {
+		
+		private static final long serialVersionUID = 1L;
 		Card c;
 
 		public JButtonCard(Card c) {

@@ -1,5 +1,6 @@
 package domain.player;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
@@ -13,7 +14,7 @@ import domain.game.strategies.CardGameStrategy;
 public abstract class Player implements Subject  {
 	protected String name;
 	protected Score score;
-	protected List<Card> hand;
+	protected List<Card> hand = new ArrayList<Card>();
 	protected CardGameStrategy gameStrategy;
 	
 	public Player(String name , Score score) throws DomainException{

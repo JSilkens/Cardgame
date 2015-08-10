@@ -2,10 +2,10 @@ package domain.card;
 
 public enum Symbol {
 	HEART,SPADES,DIAMONDS,CLUBS;
-	String reprensentation;
+	String representation;
 	
 	public String getRepresentation(){
-		return this.reprensentation;
+		return this.representation;
 	}
 	
 
