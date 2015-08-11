@@ -31,7 +31,7 @@ public class DonkeyGameStrategy implements CardGameStrategy {
 	}
 	
 	public Card swapCard(DonkeyGame game , Card c){
-		
+		game.setHeldCard(c);
 		return null;
 		
 	}

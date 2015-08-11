@@ -7,14 +7,17 @@ import java.util.List;
 import java.util.Set;
 
 import domain.DomainException;
+import domain.GameObserver;
+import domain.GameSubject;
 import domain.card.Card;
 import domain.card.Deck;
 import domain.player.Player;
 
-public abstract class CardGame {
+public abstract class CardGame implements GameSubject {
 	protected Deck deck;
 	protected Player currentPlayer;
 	protected Set<Player> players;
+	protected GameObserver gameObserver;
 
 	public CardGame(Set<Player> players) throws DomainException {
 		this.deck = createDeck();

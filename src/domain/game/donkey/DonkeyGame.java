@@ -4,7 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
+
 import domain.DomainException;
+import domain.GameObserver;
 import domain.card.Card;
 import domain.card.Deck;
 import domain.card.Symbol;
@@ -115,5 +117,26 @@ public class DonkeyGame extends CardGame {
 	public Card getCard() {
 		return this.heldCard;
 	}
+
+	@Override
+	public void addObserver(GameObserver observer) {
+		this.gameObserver = observer;
+		
+	}
+
+	@Override
+	public void removeObserver() {
+		this.gameObserver = null;
+		
+	}
+
+	@Override
+	public void notifyObserver() {
+		this.gameObserver.update(this);
+		
+	}
+
+
+
 
 }

@@ -6,16 +6,17 @@ import java.util.Set;
 
 import domain.DomainException;
 import domain.PlayerObserver;
-import domain.Subject;
+import domain.PlayerSubject;
 import domain.card.Card;
 import domain.game.CardGame;
 import domain.game.strategies.CardGameStrategy;
 
-public abstract class Player implements Subject  {
+public abstract class Player implements PlayerSubject  {
 	protected String name;
 	protected Score score;
 	protected List<Card> hand = new ArrayList<Card>();
 	protected CardGameStrategy gameStrategy;
+	protected PlayerObserver playerobserver;
 	
 	public Player(String name , Score score) throws DomainException{
 		setName(name);
@@ -76,7 +77,7 @@ public abstract class Player implements Subject  {
 	
 	@Override
 	public void addObserver(PlayerObserver observer) {
-		// TODO Auto-generated method stub
+		this.playerobserver = observer;
 		
 	}
 
@@ -88,7 +89,7 @@ public abstract class Player implements Subject  {
 
 	@Override
 	public void notifyObserver() {
-		// TODO Auto-generated method stub
+		this.playerobserver.update(this);
 		
 	}
 	

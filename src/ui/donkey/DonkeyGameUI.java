@@ -85,7 +85,7 @@ public class DonkeyGameUI extends JPanel implements GameObserver {
 
 	@Override
 	public void update(CardGame c) {
-		// TODO Auto-generated method stub
+		
 		
 	}
 }

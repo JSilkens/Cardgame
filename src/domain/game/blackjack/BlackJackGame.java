@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Set;
 
 import domain.DomainException;
+import domain.GameObserver;
 import domain.card.Card;
 import domain.card.Deck;
 import domain.card.Value;
@@ -96,6 +97,21 @@ public class BlackJackGame extends CardGame {
 	public int getMinPlayers() {
 		
 		return 2;
+	}
+	@Override
+	public void addObserver(GameObserver observer) {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public void removeObserver() {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public void notifyObserver() {
+		// TODO Auto-generated method stub
+		
 	}
 	
 	
