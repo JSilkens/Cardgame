@@ -17,7 +17,7 @@ import domain.player.donkey.DonkeyHumanPlayer;
  */
 
 public class DonkeyGameStrategy implements CardGameStrategy {
-	private Player p;
+	
 	private CardGame game;
 
 	public DonkeyGameStrategy(Player p) {

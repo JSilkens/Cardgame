@@ -58,6 +58,7 @@ public abstract class CardGame implements GameSubject {
 	public abstract Deck createDeck();
 	public abstract int getMaxPlayers();
 	public abstract int getMinPlayers();
+	
 
 	public Card getCardFromStack() {
 		return deck.takeCardFromDeck();
