@@ -1,12 +1,19 @@
 package domain.card;
 
 public enum Symbol {
-	HEART,SPADES,DIAMONDS,CLUBS;
-	String representation;
+	HEART('♥'),SPADES('♠'),DIAMONDS('♦'),CLUBS('♣');
 	
-	public String getRepresentation(){
-		return this.representation;
+	
+	private char c;
+	 Symbol(char c){
+		this.c = c;
 	}
+	 
+	 public String toString(){
+		 return "" + c;
+	 }
+	
+	
 	
 
 }

@@ -11,6 +11,7 @@ import javax.swing.GroupLayout;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 import domain.PlayerObserver;
@@ -19,6 +20,8 @@ import domain.player.Player;
 
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.LayoutStyle.ComponentPlacement;
+
+import controller.donkey.DonkeyController;
 
 public class PlayerPanel extends JPanel implements PlayerObserver {
 
@@ -37,7 +40,6 @@ public class PlayerPanel extends JPanel implements PlayerObserver {
 		this.lb = new JLabel(p.getName());
 
 		JPanel btnPanel = new JPanel();
-
 		this.groupLayout = new GroupLayout(this);
 		
 		/*
@@ -60,19 +62,20 @@ public class PlayerPanel extends JPanel implements PlayerObserver {
 								Short.MAX_VALUE)));
 		GridLayout gl = new GridLayout(2, 2);
 		btnPanel.setLayout(gl);
-		int i = 0;
+		
 		btnCards = new JButtonCard[4];
-		for (JButtonCard b : btnCards) {
-			b = new JButtonCard(p.getCards().get(i++));
-			b.addActionListener(new ActionListener() {
+		for (int i = 0 ; i < btnCards.length ; i++) {
+			btnCards[i] = new JButtonCard(p.getCards().get(i));
+			btnCards[i].addActionListener(new ActionListener() {
 				
 				@Override
 				public void actionPerformed(ActionEvent e) {
 					// TODO Auto-generated method stub
-					
+					//JOptionPane.showMessageDialog(null,((JButtonCard) e.getSource()).getCard());
+					DonkeyController.getInstance().cardPlayed(((JButtonCard) e.getSource()).getCard());
 				}
 			});
-			btnPanel.add(b);
+			btnPanel.add(btnCards[i]);
 			
 		}
 
@@ -85,6 +88,7 @@ public class PlayerPanel extends JPanel implements PlayerObserver {
 	public void update(Player p) {
 		int i = 0;
 		for (Card c : p.getCards()) {
+			//if(p.equals(obj))
 			this.btnCards[i].setCard(c);
 			i++;
 		}
@@ -94,8 +98,14 @@ public class PlayerPanel extends JPanel implements PlayerObserver {
 	public void setActive(boolean b){
 		if(b == true){
 			this.setBorder(BorderFactory.createLineBorder(Color.red, 10));
+			for(JButtonCard btn : btnCards){
+				btn.setEnabled(true);
+			}
 		}else{
 			this.setBorder(null);
+			for(JButtonCard btn : btnCards){
+				btn.setEnabled(false);
+			}
 		}
 	}
 
@@ -118,11 +128,20 @@ public class PlayerPanel extends JPanel implements PlayerObserver {
 			this.c = c;
 
 			if (this.c != null) {
-				this.setText(c.getSymbol() + " " + c.getValue());
+				this.setText(c.toString());
 			} else {
 				this.setText("");
 			}
 
+		}
+		
+		public Card getCard(){
+			return this.c;
+		}
+		
+		@Override
+		public String toString(){
+			return c.toString();
 		}
 
 	}

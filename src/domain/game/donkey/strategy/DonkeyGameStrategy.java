@@ -26,7 +26,7 @@ public class DonkeyGameStrategy implements CardGameStrategy {
 	}
 
 	private void setPlayer(Player p) {
-		this.p = p;
+		this.game.setCurrentPlayer(p);
 		
 	}
 	
@@ -42,7 +42,7 @@ public class DonkeyGameStrategy implements CardGameStrategy {
 	public int getPoints() {
 		// TODO Auto-generated method stub
 		
-		return p.getScore().getScore();
+		return game.getCurrentPlayer().getScore().getScore();
 	}
 	
 	
@@ -50,7 +50,7 @@ public class DonkeyGameStrategy implements CardGameStrategy {
 	@Override
 	public boolean isStopped() {
 		// TODO when player has the whole word => game over
-		if  (((DonkeyHumanPlayer) p).showLetters().length() == 4){
+		if  (((DonkeyHumanPlayer) game.getCurrentPlayer()).showLetters().length() == 4){
 			return true;
 		}
 		

@@ -90,7 +90,7 @@ public class MainView extends JFrame {
 				DonkeyGameUI dUI = new DonkeyGameUI();
 				dUI.setVisible(true);
 				MainView.this.contentPane.setVisible(false);
-				dUI.initPlayerPanel(donkeyController.getGame().getPlayers());
+				dUI.initPlayerPanel(donkeyController);
 				MainView.this.setContentPane(dUI);
 				
 	

@@ -21,8 +21,18 @@ public enum Value {
 		this.value = value;
 	}
 	
+	public String toString(){
+		
+		if(getValue() < 11){
+			return "" + value;
+		} else {
+			return super.toString();
+		}
+		
+	}
+	
 	public int getValue(){
-		return this.value;
+		return this.value ;
 	}
 	
 	

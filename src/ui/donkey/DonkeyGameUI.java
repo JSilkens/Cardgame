@@ -28,8 +28,10 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenu;
 import javax.swing.JMenuItem;
 
+import controller.donkey.DonkeyController;
 import domain.GameObserver;
 import domain.game.CardGame;
+import domain.game.donkey.DonkeyGame;
 import domain.player.Player;
 import ui.panels.PlayerPanel;
 
@@ -41,51 +43,45 @@ import java.util.Set;
 
 public class DonkeyGameUI extends JPanel implements GameObserver {
 
-	//private JPanel contentPane;
+	// private JPanel contentPane;
 
-	
 	/**
 	 * Create the frame.
 	 */
 	public DonkeyGameUI() {
-		
+
 		this.setBorder(BorderFactory.createLineBorder(Color.black));
-		this.setLayout(new GridLayout(2,2));
-		
-		
-		
-		
-		
+		this.setLayout(new GridLayout(2, 2));
+
 		JLabel lblGameMessage = new JLabel("Game Message");
-		
-		//mainPanel.setLayout(gl_mainPanel);
-		
-		
-		
-		
-		
-	}
-	
-	public void initPlayerPanel(Set<Player> players) {
-		
-		for(Player p : players){
-			PlayerPanel playePanel = new PlayerPanel(this, p);
-			playePanel.setActive(false);
-			this.add(playePanel);
-		}
-		
-		
-		
-		
+
+		// mainPanel.setLayout(gl_mainPanel);
+
 	}
 
-	private class CardSelectedAction{
-		
+	public void initPlayerPanel(DonkeyController gameController) {
+
+		for (Player p : gameController.getGame().getPlayers()) {
+			PlayerPanel playerPanel = new PlayerPanel(this, p);
+
+			playerPanel.setActive(p.equals(gameController.getGame().getCurrentPlayer()));
+			this.add(playerPanel);
+
+		}
+
+	}
+
+	private class CardSelectedAction {
+
 	}
 
 	@Override
 	public void update(CardGame c) {
-		
-		
+
+		for (Player p : c.getPlayers()) {
+			for (PlayerPanel playerPanel : (PlayerPanel[]) this.getComponents())
+				playerPanel.setActive(p.equals(c.getCurrentPlayer()));
+		}
+
 	}
 }

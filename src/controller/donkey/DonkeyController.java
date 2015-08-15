@@ -6,6 +6,7 @@ import java.util.Set;
 
 import ui.donkey.DonkeyGameUI;
 import domain.DomainException;
+import domain.card.Card;
 import domain.game.CardGame;
 import domain.game.donkey.DonkeyGame;
 import domain.game.donkey.strategy.DonkeyGameStrategy;
@@ -18,8 +19,9 @@ public class DonkeyController {
 	// steek spelers in spel
 	// speel het spel
 	
-	private CardGame game;
-	private DonkeyGameStrategy strategy;
+	private DonkeyGame game;
+	private static DonkeyController instance ;
+	//private DonkeyGameStrategy strategy;
 	
 	public DonkeyController(){
 		
@@ -27,8 +29,9 @@ public class DonkeyController {
 	public void createGame(Set<Player> playersArray) throws DomainException{
 		
 		DonkeyGame dg = new DonkeyGame(playersArray);
-		this.strategy = new DonkeyGameStrategy(p)
+		//this.strategy = new DonkeyGameStrategy(playersArray.iterator().next());
 		setGame(dg);
+		//setStrategy
 		
 		//dg.play();
 	}
@@ -47,6 +50,20 @@ public class DonkeyController {
 	public void createPlayers(){
 		
 	}
+	
+	public void cardPlayed(Card c){
+		//Card heldcard =  game.get;
+		System.out.println("test");
+	}
+	
+	public static DonkeyController getInstance(){
+		if(instance == null){
+			instance = new DonkeyController(); 
+		}
+		return instance;
+	}
+	
+	
 	
 
 
