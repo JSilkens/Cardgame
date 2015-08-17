@@ -3,6 +3,9 @@ package controller.donkey;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
+import java.util.SortedSet;
+
+import javax.swing.JOptionPane;
 
 import ui.donkey.DonkeyGameUI;
 import domain.DomainException;
@@ -11,6 +14,7 @@ import domain.game.CardGame;
 import domain.game.donkey.DonkeyGame;
 import domain.game.donkey.strategy.DonkeyGameStrategy;
 import domain.player.Player;
+import domain.player.donkey.DonkeyHumanPlayer;
 
 public class DonkeyController {
 	
@@ -23,17 +27,15 @@ public class DonkeyController {
 	private static DonkeyController instance ;
 	//private DonkeyGameStrategy strategy;
 	
-	public DonkeyController(){
+	protected DonkeyController(){
 		
 	}
 	public void createGame(Set<Player> playersArray) throws DomainException{
 		
 		DonkeyGame dg = new DonkeyGame(playersArray);
-		//this.strategy = new DonkeyGameStrategy(playersArray.iterator().next());
-		setGame(dg);
-		//setStrategy
 		
-		//dg.play();
+		setGame(dg);
+		
 	}
 
 	private void setGame(DonkeyGame donkeyGame) {
@@ -51,9 +53,42 @@ public class DonkeyController {
 		
 	}
 	
+	public DonkeyHumanPlayer getWinner(){
+		for(Player p : this.game.getPlayers()){
+			System.out.println(((DonkeyHumanPlayer)p).getAmountSameValue());
+			if(((DonkeyHumanPlayer) p).getAmountSameValue() == 4){
+				return (DonkeyHumanPlayer) p;
+			}
+		}
+		return null;
+	}
+	
+
 	public void cardPlayed(Card c){
-		//Card heldcard =  game.get;
-		System.out.println("test");
+		Card heldCard = game.getHeldCard();
+		
+		if(heldCard != null){
+			this.game.getCurrentPlayer().addCard(heldCard);
+		}
+		
+		
+		
+		this.game.setHeldCard(c);
+		try {
+			this.game.getCurrentPlayer().playCard(c);
+		} catch (DomainException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		if(getWinner() != null){
+			JOptionPane.showMessageDialog(null, getWinner().getName() + " won!");
+		}
+		this.game.advancePlayer();
+		
+		
+	
+		
+		
 	}
 	
 	public static DonkeyController getInstance(){

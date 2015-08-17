@@ -26,7 +26,7 @@ public class DonkeyGameStrategy implements CardGameStrategy {
 	}
 
 	private void setPlayer(Player p) {
-		this.game.setCurrentPlayer(p);
+	
 		
 	}
 	

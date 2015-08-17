@@ -66,6 +66,8 @@ public abstract class Player implements PlayerSubject  {
 		if(! this.hand.remove(c)){
 			throw new DomainException("Card does not exist.");
 		}
+		notifyObserver();
+		
 		
 	}
 	
@@ -87,10 +89,14 @@ public abstract class Player implements PlayerSubject  {
 		
 	}
 
-	@Override
+	
 	public void notifyObserver() {
 		this.playerobserver.update(this);
 		
+	}
+	
+	public void notifyObserver(Player p){
+		this.playerobserver.update(p);
 	}
 	
 

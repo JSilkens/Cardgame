@@ -29,18 +29,24 @@ public class DonkeyHumanPlayer extends DefaultHumanPlayer {
 	
 	public int getAmountSameValue(){
 		int val = 0;
+		int maxVal = 0;
 		
 		for(int i = 0 ; i < this.hand.size() ; i++){
-			for(int j = 0 ; j< this.hand.size(); i++){
-				if(this.hand.get(i).equals(this.hand.get(j))){
+			if(val > maxVal){
+				maxVal = val;
+			}
+			val = 0;
+			for(int j = 0 ; j< this.hand.size(); j++){
+				if(this.hand.get(i) == (this.hand.get(j ))){
 					val++;
 				}
 				
+				
 			}
-			val = 0;
+			
 		}
 		
-		return val;
+		return maxVal;
 				
 	}
 	

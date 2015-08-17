@@ -8,6 +8,7 @@ import java.beans.PropertyChangeListener;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashSet;
+import java.util.LinkedHashSet;
 import java.util.Set;
 import java.util.stream.Stream;
 
@@ -24,7 +25,7 @@ import javax.swing.border.EmptyBorder;
 import controller.donkey.DonkeyController;
 import ui.donkey.DonkeyGameUI;
 import domain.DomainException;
-import domain.game.donkey.DonkeyGame;
+
 import domain.player.Player;
 import domain.player.Score;
 import domain.player.donkey.DonkeyHumanPlayer;
@@ -33,7 +34,7 @@ public class MainView extends JFrame {
 
 	private JPanel contentPane;
 	private ActionListener newDonkeyGameAction = new NewGameAction();
-	private DonkeyController donkeyController = new DonkeyController();
+	private DonkeyController donkeyController = DonkeyController.getInstance();
 
 	/**
 	 * Create the frame.
@@ -86,7 +87,7 @@ public class MainView extends JFrame {
 					 new DonkeyHumanPlayer("Player D", defaultScore)
 				};
 				
-				donkeyController.createGame(new HashSet<Player>(Arrays.asList(playersArray)));
+				donkeyController.createGame(new LinkedHashSet<Player>(Arrays.asList(playersArray)));
 				DonkeyGameUI dUI = new DonkeyGameUI();
 				dUI.setVisible(true);
 				MainView.this.contentPane.setVisible(false);

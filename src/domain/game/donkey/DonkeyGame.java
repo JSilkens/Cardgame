@@ -32,7 +32,7 @@ public class DonkeyGame extends CardGame {
 	public DonkeyGame(Set<Player> players) throws DomainException {
 		super(players);
 		dealCards();
-		setCurrentPlayer(players.iterator().next());
+		
 		
 
 	}
@@ -114,27 +114,11 @@ public class DonkeyGame extends CardGame {
 		this.heldCard = c;
 	}
 
-	public Card getCard() {
+	public Card getHeldCard() {
 		return this.heldCard;
 	}
 
-	@Override
-	public void addObserver(GameObserver observer) {
-		this.gameObserver = observer;
-		
-	}
 
-	@Override
-	public void removeObserver() {
-		this.gameObserver = null;
-		
-	}
-
-	@Override
-	public void notifyObserver() {
-		this.gameObserver.update(this);
-		
-	}
 
 
 
